@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,7 +14,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRB;
 	private Transform playerT;
 	private SpriteRenderer playerSR;
-	private int direction = 1; //Direction 1 = right, -1 = left;
+	private float direction = 1f; //Direction 1 = right, -1 = left;
+    private int ammo = 0;
+    public TMP_Text ammoCounter;
+    private float healthpoints = 100;
+    public GameObject suctionGun;
+
+    private bool sucking = false;
 
 
     // Start is called before the first frame update
@@ -21,6 +29,10 @@ public class PlayerController : MonoBehaviour
         playerRB = this.gameObject.GetComponent<Rigidbody2D> ();
 		playerT = this.gameObject.GetComponent<Transform> ();
 		playerSR = this.gameObject.GetComponent<SpriteRenderer> ();
+        suctionGun.SetActive (false);
+		healthpoints = 100;
+		ammo = 0;
+        sucking = false;
     }
 
     // Update is called once per frame
@@ -30,6 +42,7 @@ public class PlayerController : MonoBehaviour
         checkMovement ();
 		checkJump();
 		checkRotation();
+        checkMouseClicks ();
     }
 
     void checkMovement()
@@ -40,11 +53,13 @@ public class PlayerController : MonoBehaviour
 		this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
 	}
 	void checkDirection(){
-		if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)){
-			direction  = -1;
+		if((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && sucking == false){
+			direction  = -1f;
+            playerT.localScale = new Vector3(direction, 1f,1f);
 		}
-		else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)){
-			direction = 1;
+		else if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && sucking == false){
+			direction = 1f;
+            playerT.localScale = new Vector3(direction, 1f,1f);
 		}
 	}
 
@@ -62,6 +77,32 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+    void checkMouseClicks ()
+	{
+
+		if (Input.GetKeyDown (KeyCode.Mouse1)) {
+			suctionGun.SetActive (true);
+			GameObject.Find ("Cone").SendMessage ("StartGun");
+            sucking = true;
+            Debug.Log("sucking: " + sucking);
+		} else if (Input.GetKeyUp (KeyCode.Mouse1)) {
+            sucking = false;
+            Debug.Log("sucking: " + sucking);
+			suctionGun.SetActive (false);
+		} else if (Input.GetKeyDown (KeyCode.Mouse0) && (ammo > 0)) {
+			Quaternion playerAngle = Quaternion.Euler (playerT.eulerAngles);
+			ammo -= 1;
+			
+		}
+		ammoCounter.text = "Ammo: " + ammo.ToString ();
+
+	}
+
+    void AddAmmo ()
+	{
+		ammo = ammo + 1;
+	}
+
     public void EnableJump(){
 		canJump = true;
 	}
@@ -69,4 +110,11 @@ public class PlayerController : MonoBehaviour
 	public void DisableJump(){
 		canJump = false;
 	}
+
+    private void OnCollisionExit2D(Collision2D other) {
+        if(other.gameObject.tag == "SmallEnemy"){
+             playerRB.velocity = Vector3.zero;
+        }
+
+    }
 }
