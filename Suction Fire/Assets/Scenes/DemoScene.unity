@@ -237,7 +237,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Move Controls: WASD
+  m_text: 'Move Controls: A, D
 
     Hold RMB to Suck Small Yellow Objects
 
