@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -124,6 +125,12 @@ public class PlayerController : MonoBehaviour
 
 	public void DisableJump(){
 		canJump = false;
+	}
+
+	private void OnCollisionEnter2D(Collision2D other) {
+		if( other.gameObject.tag == "LargeEnemy"){
+            SceneManager.LoadScene("GameOver");
+        }
 	}
 
     private void OnCollisionExit2D(Collision2D other) {

@@ -28,20 +28,23 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stretching == true) {
-			StretchEnemy ();
-			if (Time.time >= startStretchTime + stretchDuration) {
-				stretching = false;
-				startUnStretchTime = Time.time;
+		if(type == EnemyType.SmallEnemy){
+			if (stretching == true) {
+				StretchEnemy ();
+				if (Time.time >= startStretchTime + stretchDuration) {
+					stretching = false;
+					startUnStretchTime = Time.time;
+				}
+			} else  {
+				UnstretchEnemy ();
+				sucking = false;
+				
 			}
-		} else  {
-			UnstretchEnemy ();
-			sucking = false;
-			
+			if(Input.GetKeyUp(KeyCode.Mouse1)){
+				stretching = false;
+			}
 		}
-		if(Input.GetKeyUp(KeyCode.Mouse1)){
-			stretching = false;
-		}
+
     }
 
     	float toRadians (float degrees)
@@ -98,7 +101,7 @@ public class EnemyController : MonoBehaviour
 			Destroy (this.gameObject);
 		} 
 
-		if (other.gameObject.tag == "PlayerBulletNormal") {
+		if (other.gameObject.tag == "NormalPlayerBullet") {
 
 			Destroy (other.gameObject);
 			Destroy (this.gameObject);

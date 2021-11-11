@@ -20,6 +20,7 @@ public class CameraController : MonoBehaviour {
 	{
 		Vector3 newPosition = playerT.position;
 		newPosition.z = -10;
+		newPosition.y = 2f;
 		this.transform.position = Vector3.Slerp(transform.position, newPosition, FollowSpeed * Time.deltaTime);
 	}
 }
