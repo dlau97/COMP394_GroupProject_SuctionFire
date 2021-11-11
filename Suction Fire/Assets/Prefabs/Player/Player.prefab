@@ -168,12 +168,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  jumpHeight: 50
+  jumpHeight: 20
   groundCheck: {fileID: 5820168298869839078}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   ammoCounter: {fileID: 0}
+  NormalBullet: {fileID: 2401702868508308154, guid: b410a699035d72d45a0ec7f6455c6398, type: 3}
+  ExplosiveBullet: {fileID: 0}
+  bulletSpeed: 15
   suctionGun: {fileID: 3768853360864969642}
 --- !u!1 &5820168298869839077
 GameObject:

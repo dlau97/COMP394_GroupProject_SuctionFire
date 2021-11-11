@@ -17,7 +17,10 @@ public class PlayerController : MonoBehaviour
 	private float direction = 1f; //Direction 1 = right, -1 = left;
     private int ammo = 0;
     public TMP_Text ammoCounter;
-    private float healthpoints = 100;
+    public GameObject NormalBullet, ExplosiveBullet;
+
+    public float bulletSpeed = 10f;
+    //private float healthpoints = 100;
     public GameObject suctionGun;
 
     private bool sucking = false;
@@ -30,7 +33,7 @@ public class PlayerController : MonoBehaviour
 		playerT = this.gameObject.GetComponent<Transform> ();
 		playerSR = this.gameObject.GetComponent<SpriteRenderer> ();
         suctionGun.SetActive (false);
-		healthpoints = 100;
+		//healthpoints = 100;
 		ammo = 0;
         sucking = false;
     }
@@ -90,7 +93,19 @@ public class PlayerController : MonoBehaviour
             Debug.Log("sucking: " + sucking);
 			suctionGun.SetActive (false);
 		} else if (Input.GetKeyDown (KeyCode.Mouse0) && (ammo > 0)) {
-			Quaternion playerAngle = Quaternion.Euler (playerT.eulerAngles);
+			GameObject ammoClone = Instantiate (NormalBullet, this.transform.position, Quaternion.identity, this.transform);
+            Rigidbody2D ammoRB = ammoClone.GetComponent<Rigidbody2D>();
+            if(direction == 1){
+                ammoClone.transform.localPosition = new Vector3 (1f, 0f, 0f);
+            }
+            else{
+                ammoClone.transform.localPosition = new Vector3 (-1f, 0f, 0f);
+            }
+			ammoClone.transform.SetParent (null);
+
+            Vector3 dir = new Vector3 (direction, 0f, 0f);
+
+		    ammoRB.velocity = dir * (bulletSpeed);
 			ammo -= 1;
 			
 		}

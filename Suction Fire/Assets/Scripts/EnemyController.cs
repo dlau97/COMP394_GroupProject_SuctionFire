@@ -98,8 +98,7 @@ public class EnemyController : MonoBehaviour
 			Destroy (this.gameObject);
 		} 
 
-		if (other.gameObject.tag == "PlayerBullet") {
-			Debug.Log ("should make sound");
+		if (other.gameObject.tag == "PlayerBulletNormal") {
 
 			Destroy (other.gameObject);
 			Destroy (this.gameObject);
