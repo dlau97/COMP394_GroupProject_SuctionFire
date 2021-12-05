@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84bba446650405f40a3fa31c1f6ab068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   EnemyRB: {fileID: 6315793892316752690}
   chaseSpeed: 6
   suckedSpeed: 10

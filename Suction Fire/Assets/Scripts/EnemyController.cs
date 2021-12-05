@@ -100,6 +100,7 @@ public class EnemyController : MonoBehaviour
 			other.rigidbody.velocity = Vector3.zero;
 			Destroy (this.gameObject);
 		} 
+		
 
 		if (other.gameObject.tag == "NormalPlayerBullet") {
 

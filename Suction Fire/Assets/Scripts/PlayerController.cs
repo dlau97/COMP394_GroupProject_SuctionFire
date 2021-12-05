@@ -55,6 +55,9 @@ public class PlayerController : MonoBehaviour
 		Vector3 movement = new Vector3 (horizontalMovement, 0f, 0f) * Time.deltaTime;
 		this.transform.Translate(movement, Space.World);
 		this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
+		if(horizontalMovement == 0f){
+			
+		}
 	}
 	void checkDirection(){
 		if((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && sucking == false){
@@ -134,7 +137,7 @@ public class PlayerController : MonoBehaviour
 	}
 
     private void OnCollisionExit2D(Collision2D other) {
-        if(other.gameObject.tag == "SmallEnemy"){
+        if(other.gameObject.tag == "SmallEnemy" || other.gameObject.tag == "LargeEnemy"){
              playerRB.velocity = Vector3.zero;
         }
 
