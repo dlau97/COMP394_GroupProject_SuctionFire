@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -14,13 +15,11 @@ public class EnemyController : MonoBehaviour
 	private bool stretching;
 	private bool sucking;
 	private GameObject player;
-	private bool playerInRange;
 
     // Start is called before the first frame update
     void Start()
     {
         stretching = false;
-		playerInRange = false;
 		sucking = false;
 		player = GameObject.FindGameObjectWithTag ("Player");
     }
@@ -95,11 +94,18 @@ public class EnemyController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other){
 
-		if ((other.gameObject.tag == "Player") && (sucking == true)) {
-			GameObject.Find ("Player").SendMessage ("AddAmmo");
-			other.rigidbody.velocity = Vector3.zero;
-			Destroy (this.gameObject);
+		if (other.gameObject.tag == "Player") {
+			if(sucking){
+				GameObject.Find ("Player").SendMessage ("AddAmmo");
+				other.rigidbody.velocity = Vector3.zero;
+				Destroy (this.gameObject);
+			}
+			else{
+				SceneManager.LoadScene("GameOver");
+			}
+
 		} 
+
 		
 
 		if (other.gameObject.tag == "NormalPlayerBullet") {

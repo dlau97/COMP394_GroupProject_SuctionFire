@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9003553150875255825}
   - component: {fileID: 9003553150875255824}
   - component: {fileID: 9003553150875255827}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SmallEnemy
   m_TagString: SmallEnemy
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1c0078b115b797b4d8499d1322570940, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
