@@ -30,6 +30,10 @@ public class SceneController : MonoBehaviour
     public void OnClickLoadMenuScene(){
         SceneManager.LoadScene("MenuScene");
     }
+    public void OnClickLoadOptionsScene()
+    {
+        SceneManager.LoadScene("OptionsScene");
+    }
     public void LoadGameOverScene(){
         SceneManager.LoadScene("GameOverScene");
     }

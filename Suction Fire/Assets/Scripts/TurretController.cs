@@ -26,7 +26,11 @@ public class TurretController : MonoBehaviour
     void Update()
     {
         CheckHealth();
+        if (Time.time > currTime + shootTimeDelay) {
 
+            ShootBullet ();
+
+        }
         RotateToPlayer ();
     }
 
@@ -46,7 +50,6 @@ public class TurretController : MonoBehaviour
 
     private void ShootBullet(){
 		Quaternion turretAngle = Quaternion.Euler (turretT.eulerAngles);
-
 		GameObject FrontBullet = Instantiate (turretProjectile, new Vector3 (0f, 0f, 0f), turretAngle, turretT);
 		FrontBullet.transform.localPosition = new Vector3 (0.75f, 0f, 0f);
 		FrontBullet.gameObject.transform.SetParent (null);
