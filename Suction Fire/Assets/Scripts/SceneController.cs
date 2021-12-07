@@ -17,7 +17,7 @@ public class SceneController : MonoBehaviour
             if(SceneManager.GetActiveScene().name == "MenuScene"){
                 QuitApplication();
             }
-            else if(SceneManager.GetActiveScene().name == "DemoScene"){
+            else if(SceneManager.GetActiveScene().name == "DemoScene" || SceneManager.GetActiveScene().name == "Level 1" || SceneManager.GetActiveScene().name == "Level 2" || SceneManager.GetActiveScene().name == "Level 3"){
                 SceneManager.LoadScene("MenuScene");
             }
 
@@ -26,6 +26,15 @@ public class SceneController : MonoBehaviour
 
     public void OnClickLoadDemoScene(){
         SceneManager.LoadScene("DemoScene");
+    }
+    public void OnClickLoadLevel1Scene(){
+        SceneManager.LoadScene("Level 1");
+    }
+    public void OnClickLoadLevel2Scene(){
+        SceneManager.LoadScene("Level 2");
+    }
+    public void OnClickLoadLevel3Scene(){
+        SceneManager.LoadScene("Level 3");
     }
     public void OnClickLoadMenuScene(){
         SceneManager.LoadScene("MenuScene");

@@ -9,6 +9,8 @@ TagManager:
   - LargeEnemy
   - SuctionGun
   - NormalPlayerBullet
+  - Wall
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -17,9 +19,9 @@ TagManager:
   - Water
   - UI
   - SmallEnemy
-  - 
-  - 
-  - 
+  - LargeEnemy
+  - Player
+  - PlayerBullet
   - 
   - 
   - 

@@ -45,7 +45,7 @@ public class TurretBulletController : MonoBehaviour
 	}
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.tag == "Player" || other.gameObject.tag == "Ground" || other.gameObject.tag == "Wall"){
+        if(other.gameObject.tag == "Ground" || other.gameObject.tag == "Wall"){
             Destroy(this.gameObject);
         }
         

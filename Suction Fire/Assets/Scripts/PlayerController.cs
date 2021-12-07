@@ -17,8 +17,10 @@ public class PlayerController : MonoBehaviour
 	private SpriteRenderer playerSR;
 	private float direction = 1f; //Direction 1 = right, -1 = left;
     private int ammo = 0;
-    public TMP_Text ammoCounter;
+	public int maxAmmo = 5;
+    public TMP_Text ammoCounter, healthCounter;
     public GameObject NormalBullet, ExplosiveBullet;
+	public int playerHealth = 3;
 
     public float bulletSpeed = 10f;
     //private float healthpoints = 100;
@@ -113,13 +115,34 @@ public class PlayerController : MonoBehaviour
 			ammo -= 1;
 			
 		}
-		ammoCounter.text = "Ammo: " + ammo.ToString ();
+		if(ammo == 5){
+			ammoCounter.text = "Ammo: " + ammo.ToString () + " (Max)";
+		}
+		else{
+			ammoCounter.text = "Ammo: " + ammo.ToString ();
+		}
+		
+
 
 	}
 
     void AddAmmo ()
 	{
-		ammo = ammo + 1;
+		if(ammo < maxAmmo){
+			ammo = ammo + 1;
+		}
+		else {
+			ammo = maxAmmo;
+		}
+	}
+
+	public void DecreaseHealth(){
+		GameObject.Find ("Game Manager").SendMessage ("ShakeScreen", 0.4f);
+		playerHealth--;
+		healthCounter.text = "Health: "+ playerHealth.ToString();
+		if(playerHealth <= 0){
+			SceneManager.LoadScene("GameOver");
+		}
 	}
 
     public void EnableJump(){
@@ -131,15 +154,22 @@ public class PlayerController : MonoBehaviour
 	}
 
 	private void OnCollisionEnter2D(Collision2D other) {
-		if( other.gameObject.tag == "LargeEnemy"){
+		if( other.gameObject.tag == "LargeEnemy" ){
             SceneManager.LoadScene("GameOver");
         }
 	}
+	private void OnTriggerEnter2D(Collider2D other) {
+		if( other.gameObject.tag == "EnemyBullet"){
+			DecreaseHealth();
+			Destroy(other.gameObject);
+		}
+	}
 
     private void OnCollisionExit2D(Collision2D other) {
-        if(other.gameObject.tag == "SmallEnemy" || other.gameObject.tag == "LargeEnemy"){
+        if(other.gameObject.tag == "SmallEnemy" || other.gameObject.tag == "EnemyBullet"){
              playerRB.velocity = Vector3.zero;
         }
+
 
     }
 }

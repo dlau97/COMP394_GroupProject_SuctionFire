@@ -22,9 +22,9 @@ public class PlayerBulletController : MonoBehaviour
         this.transform.Rotate (new Vector3 (0, 0, 1000f) * Time.deltaTime); //Give bullet rotation
     }
     void OnCollisionEnter2D(Collision2D other){
-		if (other.gameObject.tag == "Ground") {
-			Destroy (this.gameObject);
-		}
+        if(other.gameObject.tag == "Ground" || other.gameObject.tag == "Wall"){
+            Destroy(this.gameObject);
+        }
 
 	}
 }

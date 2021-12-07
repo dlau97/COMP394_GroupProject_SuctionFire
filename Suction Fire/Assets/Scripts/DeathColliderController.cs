@@ -21,10 +21,16 @@ public class DeathColliderController : MonoBehaviour
         if(other.gameObject.tag == "Player"){
             SceneManager.LoadScene("GameOver");
         }
+        else if(other.gameObject.tag == "SmallEnemy" || other.gameObject.tag == "LargeEnemy"){
+            Destroy(other.gameObject);
+        }
     }
     private void OnCollisionStay2D(Collision2D other) {
         if(other.gameObject.tag == "Player"){
             SceneManager.LoadScene("GameOver");
+        }
+                else if(other.gameObject.tag == "SmallEnemy" || other.gameObject.tag == "LargeEnemy"){
+            Destroy(other.gameObject);
         }
     }
 }

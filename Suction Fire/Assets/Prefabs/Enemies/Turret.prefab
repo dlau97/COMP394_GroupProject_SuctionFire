@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 918554278211097738}
   - component: {fileID: 918554278211097737}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 918554278285457877}
   - component: {fileID: 918554278285457876}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,9 +175,9 @@ GameObject:
   - component: {fileID: 918554278878919277}
   - component: {fileID: 918554278878919278}
   - component: {fileID: 918554278878919279}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: LargeEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,6 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0caf967d71ba242a521fa2525d9bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 0.5
+  rotationSpeed: 0.75
   turretProjectile: {fileID: 4215870414160802934, guid: 7bf5da3cb81d8ac4d9d311dc22ee7c4f, type: 3}
-  shootTimeDelay: 1
+  shootTimeDelay: 1.5

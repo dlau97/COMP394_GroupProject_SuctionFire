@@ -147,6 +147,8 @@ MonoBehaviour:
   type: 0
   EnemyRB: {fileID: 9003553150875255824}
   chaseSpeed: 6
-  suckedSpeed: 10
+  suckedSpeed: 20
   stretchDuration: 1
   unStretchDuration: 2
+  smallMoveSpeed: 5
+  largeMoveSpeed: 3

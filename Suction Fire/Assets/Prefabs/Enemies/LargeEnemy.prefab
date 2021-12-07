@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6315793892316752689}
   - component: {fileID: 6315793892316752690}
   - component: {fileID: 9020722953445944137}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LargeEnemy
   m_TagString: LargeEnemy
   m_Icon: {fileID: 0}
@@ -150,3 +150,4 @@ MonoBehaviour:
   suckedSpeed: 10
   stretchDuration: 1
   unStretchDuration: 2
+  moveSpeed: 5
