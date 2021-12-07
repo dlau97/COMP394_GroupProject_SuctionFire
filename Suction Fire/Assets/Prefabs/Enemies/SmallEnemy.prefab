@@ -146,9 +146,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   EnemyRB: {fileID: 9003553150875255824}
-  chaseSpeed: 6
-  suckedSpeed: 20
+  chaseSpeed: 8
+  suckedSpeed: 100
   stretchDuration: 1
   unStretchDuration: 2
-  smallMoveSpeed: 5
+  smallMoveSpeed: 6
   largeMoveSpeed: 3

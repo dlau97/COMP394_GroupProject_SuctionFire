@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
         {
             if (stretching == true)
             {
-				EnemyRB.velocity = Vector3.zero;
+				
                 StretchEnemy();
                 if (Time.time >= startStretchTime + stretchDuration)
                 {
@@ -124,9 +124,11 @@ public class EnemyController : MonoBehaviour
         stretching = true;
         startStretchTime = Time.time;
         EnemyRB.gravityScale = 0f;
+		EnemyRB.velocity = Vector3.zero;
     }
     void suckTowardsPlayer()
     {
+		
         this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, suckedSpeed * Time.deltaTime);
         sucking = true;
     }

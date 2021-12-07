@@ -101,12 +101,9 @@ public class PlayerController : MonoBehaviour
 		} else if (Input.GetKeyDown (KeyCode.Mouse0) && (ammo > 0)) {
 			GameObject ammoClone = Instantiate (NormalBullet, this.transform.position, Quaternion.identity, this.transform);
             Rigidbody2D ammoRB = ammoClone.GetComponent<Rigidbody2D>();
-            if(direction == 1){
-                ammoClone.transform.localPosition = new Vector3 (1f, 0f, 0f);
-            }
-            else{
-                ammoClone.transform.localPosition = new Vector3 (-1f, 0f, 0f);
-            }
+         
+			ammoClone.transform.localPosition = new Vector3 (1f, 0f, 0f);
+
 			ammoClone.transform.SetParent (null);
 
             Vector3 dir = new Vector3 (direction, 0f, 0f);
