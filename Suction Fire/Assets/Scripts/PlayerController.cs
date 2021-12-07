@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
 		this.transform.Translate(movement, Space.World);
 		this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
 		if(horizontalMovement == 0f){
-			
+			playerRB.velocity = new Vector3(0f, playerRB.velocity.y, 0f);
 		}
 	}
 	void checkDirection(){
