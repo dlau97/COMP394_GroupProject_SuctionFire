@@ -18,6 +18,7 @@ public class LaunchpadController : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag == "Player"){
+			GameObject.Find("SoundManager").SendMessage("PlayLaunchPadSFX");
             Rigidbody2D objRB = other.GetComponent<Rigidbody2D> ();
             objRB.velocity = Vector3.zero;
             objRB.AddForce(new Vector2(0f, LaunchStrength), ForceMode2D.Impulse);

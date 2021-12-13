@@ -12,12 +12,13 @@ public class SoundController : MonoBehaviour
     void Start()
     {
         source = this.gameObject.GetComponent<AudioSource>();
-    }
 
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        float vol = GameObject.Find("GameSettings").GetComponent<SettingsController>().sfxVolume;
+        source.volume = vol;
     }
 
     public void PlayJumpSFX(){

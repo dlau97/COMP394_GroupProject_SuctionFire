@@ -50,7 +50,7 @@ MonoBehaviour:
   ammoCollectSFX: {fileID: 8300000, guid: 1ca382762d20fb14b8c7176f9309136e, type: 3}
   launchPadSFX: {fileID: 8300000, guid: d5f852da0c79c354493444769384d526, type: 3}
   enemyHitSFX: {fileID: 8300000, guid: ed95ea970db44534dba9b54acc4e55ca, type: 3}
-  enemyDeathSFX: {fileID: 0}
+  enemyDeathSFX: {fileID: 8300000, guid: dba93e53e2f14ff4d94660faf82c0469, type: 3}
   checkpointSFX: {fileID: 8300000, guid: e382b7c8fdc4a82418ff5e241aab9a1e, type: 3}
   collisionSFX: {fileID: 8300000, guid: ed95ea970db44534dba9b54acc4e55ca, type: 3}
 --- !u!82 &4529150237438858932
