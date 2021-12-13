@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
 
     public GameObject hitSprite, smallDeathFX, largeDeathFX;
 
+	private GameObject soundController;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class EnemyController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         EnemyRB = this.gameObject.GetComponent<Rigidbody2D>();
         startHitTime = Time.time;
+        soundController = GameObject.Find("SoundManager");
     }
 
     // Update is called once per frame
@@ -157,6 +159,7 @@ public class EnemyController : MonoBehaviour
             if (sucking)
             {
                 GameObject.Find("Player").SendMessage("AddAmmo");
+                soundController.SendMessage("PlayAmmoCollectSFX");
                 other.rigidbody.velocity = Vector3.zero;
                 Destroy(this.gameObject);
             }
@@ -174,15 +177,17 @@ public class EnemyController : MonoBehaviour
                 hitpoints--;
                 hitSprite.SetActive(true);
                 startHitTime = Time.time;
+                soundController.SendMessage("PlayEnemyHitSFX");
                 if (hitpoints <= 0)
                 {
                     Destroy(Instantiate(largeDeathFX, this.transform.position, Quaternion.identity), 5f);
                     Destroy(this.gameObject);
-                    
+                    soundController.SendMessage("PlayEnemyDeathSFX");
                 }
             }
             else
             {
+                soundController.SendMessage("PlayEnemyHitSFX");
                 Destroy(Instantiate(smallDeathFX, this.transform.position, Quaternion.identity), 5f);
                 Destroy(this.gameObject);
             }

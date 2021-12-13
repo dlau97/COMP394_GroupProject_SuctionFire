@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     private bool sucking = false;
 
+	private GameObject soundController;
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
 		//healthpoints = 100;
 		ammo = 0;
         sucking = false;
+		soundController = GameObject.Find("SoundManager");
     }
 
     // Update is called once per frame
@@ -88,6 +91,7 @@ public class PlayerController : MonoBehaviour
 
 		if(Input.GetKeyDown(KeyCode.Space) && canJump == true){
 			playerRB.AddForce(new Vector2(0,jumpHeight), ForceMode2D.Impulse);
+			soundController.SendMessage("PlayJumpSFX");
 			canJump = false;
 		}
 	}
@@ -116,6 +120,7 @@ public class PlayerController : MonoBehaviour
 
 		    ammoRB.velocity = dir * (bulletSpeed);
 			ammo -= 1;
+			soundController.SendMessage("PlayShootSFX");
 			
 		}
 		if(ammo == 5){
@@ -159,6 +164,9 @@ public class PlayerController : MonoBehaviour
 	private void OnCollisionEnter2D(Collision2D other) {
 		if( other.gameObject.tag == "LargeEnemy" ){
             SceneManager.LoadScene("GameOver");
+        }
+		if(other.gameObject.tag == "Ground" || other.gameObject.tag == "Wall"){
+            soundController.SendMessage("PlayCollisionSFX");
         }
 	}
 	private void OnTriggerEnter2D(Collider2D other) {
