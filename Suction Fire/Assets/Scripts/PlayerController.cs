@@ -14,12 +14,12 @@ public class PlayerController : MonoBehaviour
     private bool canJump = true;
     private Rigidbody2D playerRB;
 	private Transform playerT;
-	private SpriteRenderer playerSR;
+	public SpriteRenderer playerSR, gunSR;
 	private float direction = 1f; //Direction 1 = right, -1 = left;
     private int ammo = 0;
 	public int maxAmmo = 5;
     public TMP_Text ammoCounter, healthCounter;
-    public GameObject NormalBullet, ExplosiveBullet;
+    public GameObject NormalBullet;
 	public int playerHealth = 3;
 
     public float bulletSpeed = 10f;
@@ -65,10 +65,16 @@ public class PlayerController : MonoBehaviour
 		if((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && sucking == false){
 			direction  = -1f;
             playerT.localScale = new Vector3(direction, 1f,1f);
+			playerSR.flipX = true;
+			gunSR.flipX = true;
+			ammoCounter.transform.localScale = new Vector3(-1*Mathf.Abs(ammoCounter.transform.localScale.x), ammoCounter.transform.localScale.y,ammoCounter.transform.localScale.z);
 		}
 		else if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && sucking == false){
 			direction = 1f;
             playerT.localScale = new Vector3(direction, 1f,1f);
+			playerSR.flipX = false;
+			gunSR.flipX = false;
+			ammoCounter.transform.localScale = new Vector3(Mathf.Abs(ammoCounter.transform.localScale.x), ammoCounter.transform.localScale.y,ammoCounter.transform.localScale.z);
 		}
 	}
 
@@ -113,10 +119,10 @@ public class PlayerController : MonoBehaviour
 			
 		}
 		if(ammo == 5){
-			ammoCounter.text = "Ammo: " + ammo.ToString () + " (Max)";
+			ammoCounter.text = "" + ammo.ToString () + " (Max)";
 		}
 		else{
-			ammoCounter.text = "Ammo: " + ammo.ToString ();
+			ammoCounter.text = "" + ammo.ToString ();
 		}
 		
 

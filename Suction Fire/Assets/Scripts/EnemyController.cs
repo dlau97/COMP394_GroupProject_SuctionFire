@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     public float chaseSpeed = 6f;
     public float suckedSpeed = 10f;
     public float stretchDuration = 1f, unStretchDuration = 2f;
-    private float startStretchTime, startUnStretchTime;
+    private float startStretchTime, startUnStretchTime, startHitTime;
     private bool stretching;
     private bool sucking;
     private GameObject player;
@@ -22,6 +22,8 @@ public class EnemyController : MonoBehaviour
     private bool initialPlatform = false;
     private int hitpoints = 2;
 
+    public GameObject hitSprite, smallDeathFX, largeDeathFX;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class EnemyController : MonoBehaviour
         sucking = false;
         player = GameObject.FindGameObjectWithTag("Player");
         EnemyRB = this.gameObject.GetComponent<Rigidbody2D>();
+        startHitTime = Time.time;
     }
 
     // Update is called once per frame
@@ -74,14 +77,20 @@ public class EnemyController : MonoBehaviour
                 stretching = false;
             }
         }
-        else if (initialPlatform == true)
+        else
         {
-            if (direction == 1) { //direction right
-				EnemyRB.velocity = new Vector3(largeMoveSpeed, EnemyRB.velocity.y, 0f);
+            if (initialPlatform == true){
+                if (direction == 1) { //direction right
+                    EnemyRB.velocity = new Vector3(largeMoveSpeed, EnemyRB.velocity.y, 0f);
+                }
+                else if (direction == 2) { //direction left
+                    EnemyRB.velocity = new Vector3((-1f) * largeMoveSpeed, EnemyRB.velocity.y, 0f);
+                }
             }
-            else if (direction == 2) { //direction left
-				EnemyRB.velocity = new Vector3((-1f) * largeMoveSpeed, EnemyRB.velocity.y, 0f);
+            if(Time.time >= startHitTime + 0.1f){
+                hitSprite.SetActive(false);
             }
+
         }
 
     }
@@ -163,13 +172,18 @@ public class EnemyController : MonoBehaviour
             if (this.gameObject.tag == "LargeEnemy")
             {
                 hitpoints--;
+                hitSprite.SetActive(true);
+                startHitTime = Time.time;
                 if (hitpoints <= 0)
                 {
+                    Destroy(Instantiate(largeDeathFX, this.transform.position, Quaternion.identity), 5f);
                     Destroy(this.gameObject);
+                    
                 }
             }
             else
             {
+                Destroy(Instantiate(smallDeathFX, this.transform.position, Quaternion.identity), 5f);
                 Destroy(this.gameObject);
             }
             Destroy(other.gameObject);

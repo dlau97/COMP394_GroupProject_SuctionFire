@@ -238,4 +238,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.75
   turretProjectile: {fileID: 4215870414160802934, guid: 7bf5da3cb81d8ac4d9d311dc22ee7c4f, type: 3}
-  shootTimeDelay: 1.5
+  shootTimeDelay: 1

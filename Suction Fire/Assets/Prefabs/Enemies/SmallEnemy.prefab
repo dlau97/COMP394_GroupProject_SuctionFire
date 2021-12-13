@@ -152,3 +152,5 @@ MonoBehaviour:
   unStretchDuration: 2
   smallMoveSpeed: 6
   largeMoveSpeed: 3
+  smallDeathFX: {fileID: 8780441311718301266, guid: d2c6d56a052a8cb42ab3d9ce591dc32c, type: 3}
+  largeDeathFX: {fileID: 2806108594061442905, guid: 4eccf0a37a3f16f48940ca0cdfb2da17, type: 3}

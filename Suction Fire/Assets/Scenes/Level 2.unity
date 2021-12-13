@@ -1134,17 +1134,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc719c33820af924d9c513d567c4ada2, type: 3}
---- !u!114 &1417276065 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2932107866825011607, guid: 41ef8e1daedba15418343e50466fad18, type: 3}
-  m_PrefabInstance: {fileID: 2932107865953033014}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1434708541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1479,6 +1468,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83fd7a3fcb9107741bb99df7ff4641e4, type: 3}
+--- !u!1001 &1822802623
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2120611491987859952, guid: 7a967404f18451a4f91d606736d1afc6, type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120611491987859952, guid: 7a967404f18451a4f91d606736d1afc6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 50.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120611491987859952, guid: 7a967404f18451a4f91d606736d1afc6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120611491987859952, guid: 7a967404f18451a4f91d606736d1afc6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120611491987859952, guid: 7a967404f18451a4f91d606736d1afc6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120611491987859952, guid: 7a967404f18451a4f91d606736d1afc6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120611491987859952, guid: 7a967404f18451a4f91d606736d1afc6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120611491987859952, guid: 7a967404f18451a4f91d606736d1afc6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120611491987859952, guid: 7a967404f18451a4f91d606736d1afc6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120611491987859952, guid: 7a967404f18451a4f91d606736d1afc6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120611491987859952, guid: 7a967404f18451a4f91d606736d1afc6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120611491987859953, guid: 7a967404f18451a4f91d606736d1afc6, type: 3}
+      propertyPath: m_Name
+      value: Glow Post Processor White
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7a967404f18451a4f91d606736d1afc6, type: 3}
 --- !u!1 &1847727166
 GameObject:
   m_ObjectHideFlags: 0
@@ -2236,7 +2282,7 @@ PrefabInstance:
     - target: {fileID: 5820168298637424855, guid: 0f1c3dcf6956fbc44bec5bcd3f2ea4de, type: 3}
       propertyPath: ammoCounter
       value: 
-      objectReference: {fileID: 1417276065}
+      objectReference: {fileID: 0}
     - target: {fileID: 5820168298637424855, guid: 0f1c3dcf6956fbc44bec5bcd3f2ea4de, type: 3}
       propertyPath: healthCounter
       value: 
@@ -2266,6 +2312,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7015423372564634488, guid: f9fbe11f074b0fb49a656e89c1005902, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.14901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015423372564634488, guid: f9fbe11f074b0fb49a656e89c1005902, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.14901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015423372564634488, guid: f9fbe11f074b0fb49a656e89c1005902, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.14901961
+      objectReference: {fileID: 0}
     - target: {fileID: 7015423372564634489, guid: f9fbe11f074b0fb49a656e89c1005902, type: 3}
       propertyPath: playerT
       value: 
