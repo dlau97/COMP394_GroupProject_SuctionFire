@@ -17,7 +17,7 @@ public class GroundCheckController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Ground" || other.gameObject.tag == "Wall"){
             playerObj.SendMessage("EnableJump");
-            Debug.Log("Can jump");
+            //Debug.Log("Can jump");
         }
     }
 
@@ -30,7 +30,7 @@ public class GroundCheckController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         if(other.gameObject.tag == "Ground" || other.gameObject.tag == "Wall"){
             playerObj.SendMessage("DisableJump");
-            Debug.Log("Cant jump");
+            //Debug.Log("Cant jump");
         }
     }
 }

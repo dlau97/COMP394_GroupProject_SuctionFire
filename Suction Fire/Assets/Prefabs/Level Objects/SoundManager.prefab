@@ -53,6 +53,7 @@ MonoBehaviour:
   enemyDeathSFX: {fileID: 8300000, guid: dba93e53e2f14ff4d94660faf82c0469, type: 3}
   checkpointSFX: {fileID: 8300000, guid: e382b7c8fdc4a82418ff5e241aab9a1e, type: 3}
   collisionSFX: {fileID: 8300000, guid: ed95ea970db44534dba9b54acc4e55ca, type: 3}
+  menuClick: {fileID: 8300000, guid: b6acc9dc4cab7ae438bb1afbee5ebc6b, type: 3}
 --- !u!82 &4529150237438858932
 AudioSource:
   m_ObjectHideFlags: 0

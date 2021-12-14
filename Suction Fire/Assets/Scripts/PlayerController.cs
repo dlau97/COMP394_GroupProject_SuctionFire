@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
 		ammo = 0;
         sucking = false;
 		soundController = GameObject.Find("SoundManager");
+		GameObject.FindObjectOfType<SettingsController>().StartTimer();
     }
 
     // Update is called once per frame
@@ -56,6 +57,9 @@ public class PlayerController : MonoBehaviour
 
     void checkMovement()
 	{
+		if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)){
+			playerRB.velocity = new Vector3(0f, playerRB.velocity.y, 0f);
+		}
 		float horizontalMovement = Input.GetAxis ("Horizontal") * speed;
 		Vector3 movement = new Vector3 (horizontalMovement, 0f, 0f) * Time.deltaTime;
 		this.transform.Translate(movement, Space.World);
@@ -63,6 +67,7 @@ public class PlayerController : MonoBehaviour
 		if(horizontalMovement == 0f){
 			playerRB.velocity = new Vector3(0f, playerRB.velocity.y, 0f);
 		}
+
 	}
 	void checkDirection(){
 		if((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && sucking == false){
@@ -103,10 +108,10 @@ public class PlayerController : MonoBehaviour
 			suctionGun.SetActive (true);
 			GameObject.Find ("Cone").SendMessage ("StartGun");
             sucking = true;
-            Debug.Log("sucking: " + sucking);
+            //Debug.Log("sucking: " + sucking);
 		} else if (Input.GetKeyUp (KeyCode.Mouse1)) {
             sucking = false;
-            Debug.Log("sucking: " + sucking);
+            //Debug.Log("sucking: " + sucking);
 			suctionGun.SetActive (false);
 		} else if (Input.GetKeyDown (KeyCode.Mouse0) && (ammo > 0)) {
 			GameObject ammoClone = Instantiate (NormalBullet, this.transform.position, Quaternion.identity, this.transform);

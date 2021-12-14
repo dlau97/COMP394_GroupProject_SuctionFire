@@ -166,6 +166,9 @@ public class EnemyController : MonoBehaviour
             else
             {
                 GameObject.Find("Player").SendMessage("DecreaseHealth");
+                soundController.SendMessage("PlayEnemyHitSFX");
+                Destroy(Instantiate(smallDeathFX, this.transform.position, Quaternion.identity), 5f);
+                Destroy(this.gameObject);
             }
 
         }

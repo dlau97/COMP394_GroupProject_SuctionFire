@@ -6,6 +6,8 @@ public class SoundController : MonoBehaviour
 {
 
     public AudioClip jumpSFX, deathSFX, shootSFX, ammoCollectSFX, launchPadSFX, enemyHitSFX, enemyDeathSFX, checkpointSFX, collisionSFX;
+    
+    public AudioClip menuClick;
     private AudioSource source;
 
     // Start is called before the first frame update
@@ -45,7 +47,9 @@ public class SoundController : MonoBehaviour
     public void PlayCollisionSFX(){
         source.PlayOneShot(collisionSFX,0.5f);
     }
-
+    public void PlayButtonClickSFX(){
+        source.PlayOneShot(menuClick,0.2f);
+    }
     public void setVolume(float vol){
         source.volume = vol;
     }
